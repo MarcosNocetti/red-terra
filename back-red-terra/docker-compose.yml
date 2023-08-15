@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  red_terra_mysql:
+    image: mysql
+    container_name: red_terra_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: MYSQL_DATABASE
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+    volumes:
+      - ./db/init.sql:/docker-entrypoint.initdb.d/init.sql
+    ports:
+      - 3306:3306
